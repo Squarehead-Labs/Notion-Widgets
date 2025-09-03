@@ -246,7 +246,7 @@ select {
   </div>
 
   <script>
-    const clock = document.getElementById("clock");
+const clock = document.getElementById("clock");
 const time = document.getElementById("time");
 const amPm = document.getElementById("am-pm");
 const switchBtn = document.getElementById("switch-btn");
@@ -256,6 +256,11 @@ const closeModalBtn = document.querySelector(".close-btn");
 const saveBtn = document.getElementById("save-btn");
 const backgroundColorSelect = document.getElementById("background-color");
 const fontColorSelect = document.getElementById("font-color");
+
+const urlParams = new URLSearchParams(window.location.search);
+const label = urlParams.get("label")
+const timeZone = urlParams.get("timezone")
+    
 
 // Default values
 let is24Hour = false;
@@ -290,19 +295,34 @@ document.addEventListener("DOMContentLoaded", function () {
   updateTime();
 });
 
+
+function getCityHour(timeZone) {
+  const hour = new Intl.DateTimeFormat('es-MX', {
+    timeZone,
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false
+  }).format(new Date());
+
+  return hour;
+}
+
 function updateTime() {
   let date = new Date();
   let hours = date.getHours();
   let minutes = date.getMinutes();
 
+
+  
   if (!is24Hour) {
     let amPmValue = hours >= 12 ? "PM" : "AM";
     hours = hours % 12 || 12;
     amPm.innerText = amPmValue;
-    time.innerText = `${hours}:${minutes < 10 ? "0" : ""}${minutes}`;
+    time.innerText = getCityHour(timeZone)
   } else {
     amPm.innerText = "";
-    time.innerText = `${hours < 10 ? "0" : ""}${hours}:${minutes < 10 ? "0" : ""}${minutes}`;
+    time.innerText = getCityHour(timeZone)
   }
 
   clock.style.color = fontColor;
@@ -361,3 +381,4 @@ updateTime();
   </script>
 </body>
 </html>
+
