@@ -1,0 +1,160 @@
+    body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#clock {
+    font-size: 150px;
+    text-align: center;
+    font-family: 'Karla', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+#time {
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+#am-pm {
+    font-size: 30px;
+    display: inline-block;
+
+}
+
+#switch-btn,
+#settings-btn {
+    font-family: Karla;
+    background-color: transparent;
+    border: none;
+    position: fixed;
+    bottom: 20px;
+}
+
+#settings-btn {
+    margin-left: 40px;
+}
+
+#switch-btn:hover,
+#settings-btn:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+#settings-modal {
+    font-family: Rubik;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    width: 300px;
+    font-family: Rubik;
+    color: black;
+    align-items: center;
+    justify-content: center;
+    background-color: #f7f6f3;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.setting-option {
+    text-align: center;
+    align-item: center;
+    font-family: Rubik;
+    margin-bottom: 10px;
+}
+
+#setting-wrapper {
+    text-align: center;
+    flex-direction: column;
+    display: flex;
+    align-item: center;
+}
+
+.close-btn {
+    color: #000;
+    float: right;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#save-btn {
+    margin-top: 10px;
+    width: 60%;
+    font-family: Rubik;
+    background-color: black;
+    color: #fff;
+    border: none;
+    border-radius: 100px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+
+}
+
+
+#save-btn:hover {
+    background-color: grey;
+    color: white;
+
+}
+
+
+select {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 10px;
+    width: 60%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+}
+
+/* Media Queries for Different Screen Sizes */
+
+/* For screens with width less than or equal to 768px */
+@media screen and (max-width: 768px) {
+    #clock {
+        font-size: 100px;
+    }
+
+    #am-pm {
+        font-size: 10px;
+    }
+}
+
+/* For screens with width less than or equal to 576px */
+@media screen and (max-width: 576px) {
+    #clock {
+        font-size: 80px;
+    }
+
+    #am-pm {
+        font-size: 10px;
+    }
+}
